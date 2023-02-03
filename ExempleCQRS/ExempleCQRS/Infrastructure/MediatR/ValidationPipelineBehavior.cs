@@ -18,7 +18,8 @@ namespace ExempleCQRS.Infrastructure.MediatR
             _validators = validators;
         }
 
-        public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
+        public Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, 
+            RequestHandlerDelegate<TResponse> next)
         {
             var errors = _validators
                 .Select(x => x.Validate(request))

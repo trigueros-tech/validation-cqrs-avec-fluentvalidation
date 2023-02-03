@@ -35,7 +35,9 @@ namespace ExempleCQRS
             services.AddValidatorsFromAssembly(typeof(GetUserByIdValidator).Assembly);
             
             services.AddMediatR(typeof(GetUserById).Assembly);
-            services.AddScoped(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+            
+            services.AddScoped(typeof(IPipelineBehavior<,>), 
+                typeof(ValidationPipelineBehavior<,>));
             
             services.AddSwaggerGen(c =>
             {
